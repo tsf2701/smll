@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>A Gift For You</title>
+<style>
+:root{--bg:#fff7ed;--fg:#1c1917;--btn:#e11d48;--btn-fg:#fff;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0a09;--fg:#fafaf9;--btn:#f43f5e;--btn-fg:#fff}}
+:root[data-theme="dark"]{--bg:#0c0a09;--fg:#fafaf9;--btn:#f43f5e;--btn-fg:#fff}
+html,body{height:100%;margin:0}
+body{background:var(--bg);color:var(--fg);font-family:system-ui,-apple-system,"Segoe UI",sans-serif;display:flex;align-items:center;justify-content:center;text-align:center}
+.box{padding:24px}
+button{font:inherit;font-size:1.4rem;font-weight:700;background:var(--btn);color:var(--btn-fg);border:0;border-radius:999px;padding:18px 40px;cursor:pointer;box-shadow:0 8px 24px rgba(225,29,72,.35);animation:pulse 1.6s infinite}
+button:active{transform:scale(.95)}
+@keyframes pulse{50%{transform:scale(1.06)}}
+@keyframes shake{25%{transform:rotate(-8deg)}75%{transform:rotate(8deg)}}
+.gift{font-size:5rem;display:block;margin-bottom:20px}
+.shake{animation:shake .15s 6}
+#reveal{display:none}
+#reveal h1{font-size:clamp(2.5rem,12vw,5rem);margin:0 0 10px}
+#reveal p{font-size:2rem;margin:0}
+</style>
+</head>
+<body>
+<div class="box">
+  <div id="start">
+    <span class="gift" id="g">🎁</span>
+    <button id="b">Gift for you</button>
+  </div>
+  <div id="reveal">
+    <h1>Fuck you 🖕</h1>
+    <p>😂😂😂</p>
+  </div>
+</div>
+<script>
+document.getElementById('b').addEventListener('click',function(){
+  var g=document.getElementById('g');
+  g.classList.add('shake');
+  setTimeout(function(){
+    document.getElementById('start').style.display='none';
+    document.getElementById('reveal').style.display='block';
+  },900);
+});
+</script>
+</body>
+</html>
